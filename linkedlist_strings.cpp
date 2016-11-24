@@ -30,7 +30,7 @@ public:
        
         p = new Node(value);
         // strcpy(p->item, x);
-        p->pnext = Node;
+        p->pnext = this;
         return p;    
     }
 
@@ -47,7 +47,7 @@ int main()
 {
     Node MyNode(7);
     Node *Nodeptr = &MyNode;
-    //MyList.insert("Batman");
+    MyNode.insert(4);
 
     return 0;
 }
