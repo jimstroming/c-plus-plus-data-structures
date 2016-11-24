@@ -22,8 +22,17 @@ public:
     : pnext( NULL ), data( value )
     {
     }
-    // Insert node in front:
-    void insert( Node* newNode );
+    // Insert node in front
+    // Return a link to the head:
+    Node* insert( int value = 0 )
+    {
+        Node *p;   
+       
+        p = new Node(value);
+        // strcpy(p->item, x);
+        p->pnext = Node;
+        return p;    
+    }
 
     // Remove node in front:
     void remove_next();
@@ -31,17 +40,7 @@ public:
 };
 
 
-/*
-void List::insert(char* x)
-{
-    List *p;   
-       
-    p = new List;
-    strcpy(p->item, x);
-    p->next = *l;
-    *l = p;
-}
-*/
+
 
 
 int main()
