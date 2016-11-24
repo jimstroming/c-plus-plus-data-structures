@@ -17,13 +17,13 @@ class List {
     List *next;          /* point to successor */
     
   public:  
-    void insert_list(List **, char*);
+    void insert(List **, char*);
     
     
 } list;
 
 
-void List::insert_list(List **l, char* x)
+void List::insert(List **l, char* x)
 {
     List *p;   
        
@@ -37,7 +37,8 @@ void List::insert_list(List **l, char* x)
 
 int main()
 {
-
+    List MyList;
+    MyList.insert("Batman");
 
     return 0;
 }
