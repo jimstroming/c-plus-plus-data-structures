@@ -8,22 +8,31 @@
 /* ========================================================================== */
 
 #include <iostream> 
-#include <stdio.h>
+//#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+//#include <string.h>
 
-class List {
-    char item[100];             /* data item.  100 character long words */
-    List *next;          /* point to successor */
-    
-  public:  
-    void insert(List **, char*);
-    
-    
-} list;
+class Node {
+    Node* pnext;
+public:
+    int data;
+
+    // Constructor taking initial value:
+    Node( int value = 0 )
+    : pnext( NULL ), data( value )
+    {
+    }
+    // Insert node in front:
+    void insert( Node* newNode );
+
+    // Remove node in front:
+    void remove_next();
+
+};
 
 
-void List::insert(List **l, char* x)
+/*
+void List::insert(char* x)
 {
     List *p;   
        
@@ -32,13 +41,14 @@ void List::insert(List **l, char* x)
     p->next = *l;
     *l = p;
 }
-
+*/
 
 
 int main()
 {
-    List MyList;
-    MyList.insert("Batman");
+    Node MyNode(7);
+    Node *Nodeptr = &MyNode;
+    //MyList.insert("Batman");
 
     return 0;
 }
