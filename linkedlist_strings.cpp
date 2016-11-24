@@ -42,6 +42,22 @@ public:
         if (l->pnext == NULL) return;        
         return print(l->pnext);
     }    
+
+    Node *predecessor(Node *l, int x)
+    {
+        //printf("Get predecessor\n");
+        if ((l == NULL ) || (l->pnext == NULL)){
+            // predecessor sought on null list
+            return(NULL);    
+        }
+    
+        if ((l->pnext)->data == x)
+            return(l);
+        else
+            return(predecessor(l->pnext,x));
+    }
+
+
     
 
     // Remove node in front:
