@@ -7,10 +7,13 @@
 /*                                                                            */
 /* ========================================================================== */
 
-#include <iostream> 
 //#include <stdio.h>
-#include <stdlib.h>
+//#include <stdlib.h>
 //#include <string.h>
+#include <iostream>
+#include <string>
+using namespace std;
+
 
 class Node {
     Node* pnext;
@@ -47,7 +50,10 @@ int main()
 {
     Node MyNode(7);
     Node *Nodeptr = &MyNode;
-    MyNode.insert(4);
-
+    Nodeptr = MyNode.insert(4);
+    Nodeptr = MyNode.insert(3);
+    
+    cout <<  Nodeptr->data << endl;
+    
     return 0;
 }
