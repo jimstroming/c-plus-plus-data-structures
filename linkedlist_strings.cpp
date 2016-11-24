@@ -32,10 +32,17 @@ public:
         Node *p;   
        
         p = new Node(value);
-        // strcpy(p->item, x);
-        p->pnext = this;
+        p->pnext = this;    
         return p;    
     }
+    
+    void print(Node *l)
+    {
+        cout << (void *)l << " contains " << l->data << endl;
+        if (l->pnext == NULL) return;        
+        return print(l->pnext);
+    }    
+    
 
     // Remove node in front:
     void remove_next();
@@ -50,10 +57,11 @@ int main()
 {
     Node MyNode(7);
     Node *Nodeptr = &MyNode;
-    Nodeptr = MyNode.insert(4);
-    Nodeptr = MyNode.insert(3);
-    
-    cout <<  Nodeptr->data << endl;
+    Nodeptr = Nodeptr->insert(4);
+    Nodeptr = Nodeptr->insert(3);
+        
+    cout << "Print the list" << endl;
+    Nodeptr->print(Nodeptr);
     
     return 0;
 }
