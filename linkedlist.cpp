@@ -16,7 +16,7 @@ using namespace std;
 
 
 class Node {
-    Node* pnext;
+    Node *pnext;
 public:
     int data;
 
@@ -27,7 +27,7 @@ public:
     }
     // Insert node in front
     // Return a link to the head:
-    Node* insert( int x = 0 )
+    Node *insert( int x = 0 )
     {
         Node *p;   
        
@@ -45,7 +45,6 @@ public:
 
     Node *predecessor(int x)
     {
-        //printf("Get predecessor\n");
         if ((this == NULL ) || (this->pnext == NULL)){
             // predecessor sought on null list
             return(NULL);    
@@ -59,7 +58,6 @@ public:
 
     Node *search(int x)
     {
-        //printf("Call search_list\n");
         if (this == NULL) return (NULL);
     
         if (this->data == x)
