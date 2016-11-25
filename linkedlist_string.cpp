@@ -55,12 +55,10 @@ public:
 
     Node *search(string x)
     {
-        if (this == NULL) return (NULL);
-    
-        if (this->data == x)
-            return(this);
-        else
-            return((this->pnext)->search(x));
+        cout << "search node " << this->data << " for " << x << endl;
+        if (this->data == x) return this;
+        if (this->pnext == NULL) return NULL;    
+        return((this->pnext)->search(x));
     }
 
     Node *remove(Node *listhead, string x)
@@ -71,6 +69,7 @@ public:
     
         cout << "Call delete_list" << endl;
         p = this->search(x);
+        cout << "found p" << endl;
         if (p != NULL) {
             cout << "Got a match" << endl;
             pred = this->predecessor(x);
@@ -79,9 +78,9 @@ public:
             else
                pred->pnext = p->pnext;
             cout << "Free p=" << (void*)p << endl;
-            delete p; 
-            return listhead;           
+            delete p;       
         }
+        return listhead;
     }
 
 };
@@ -149,7 +148,33 @@ int main()
     cout << "Print the list" << endl;
     MyList.print();
     
+    cout << "Delete node Joker after already deleted" << endl;
+    MyList.remove("Joker");
     
+    cout << "Print the list" << endl;
+    MyList.print();    
+ 
+    cout << "Delete node Joker again after already deleted" << endl;
+    MyList.remove("Joker");
+
     
+    cout << "Print the list" << endl;
+    MyList.print();
+    
+    cout << "Delete node Batman" << endl;
+    MyList.remove("Batman");
+    
+    cout << "Delete node Robin" << endl;
+    MyList.remove("Robin"); 
+
+    cout << "Print the list" << endl;
+    MyList.print();    
+    
+    cout << "Insert Superman" << endl;    
+    MyList.insert("Superman");
+    
+    cout << "Print the list" << endl;
+    MyList.print();
+               
     return 0;
 }
