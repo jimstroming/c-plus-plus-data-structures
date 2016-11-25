@@ -84,10 +84,43 @@ public:
         }
     }
 
-
-
 };
 
+class LinkedList {
+    Node *Listhead;
+public:
+
+    // Constructor taking initial value:
+    LinkedList()
+    : Listhead( NULL )
+    {
+    }
+
+    void insert( string x = NULL )
+    {
+        if (Listhead == NULL) Listhead = new Node(x);
+        else  Listhead = Listhead->insert(x);
+    }
+    
+    void print()
+    {
+       if (Listhead == NULL) return;
+       Listhead->print();
+    }
+    
+    LinkedList *search(string x)
+    {
+       if (Listhead == NULL) return NULL;
+       return (LinkedList *) Listhead->search(x);
+    }
+
+    void remove(string x)
+    {
+        if (Listhead == NULL) return;
+        Listhead = Listhead->remove(Listhead, x);
+    }
+
+};
 
 
 
