@@ -57,7 +57,18 @@ public:
             return(predecessor(l->pnext,x));
     }
 
+    Node *search(Node *l, int x)
+    {
+        //printf("Call search_list\n");
+        if (l == NULL) return (NULL);
+    
+        if (l->data == x)
+            return(l);
+        else
+            return(search(l->pnext, x));
+    }
 
+  
     
 
     // Remove node in front:
@@ -73,11 +84,17 @@ int main()
 {
     Node MyNode(7);
     Node *Nodeptr = &MyNode;
+    Node *foundnode;
     Nodeptr = Nodeptr->insert(4);
     Nodeptr = Nodeptr->insert(3);
         
     cout << "Print the list" << endl;
     Nodeptr->print(Nodeptr);
+    
+    cout << "Find node 4" << endl;
+    foundnode = Nodeptr->search(Nodeptr,4);
+    cout << "Found " << foundnode->data << endl;
+    
     
     return 0;
 }
