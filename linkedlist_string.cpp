@@ -7,9 +7,6 @@
 /*                                                                            */
 /* ========================================================================== */
 
-//#include <stdio.h>
-//#include <stdlib.h>
-//#include <string.h>
 #include <iostream>
 #include <string>
 using namespace std;
@@ -18,16 +15,16 @@ using namespace std;
 class Node {
     Node *pnext;
 public:
-    int data;
+    string data;
 
     // Constructor taking initial value:
-    Node( int value = 0 )
+    Node( string value = NULL )
     : pnext( NULL ), data( value )
     {
     }
     // Insert node in front
     // Return a link to the head:
-    Node *insert( int x = 0 )
+    Node *insert( string x = NULL )
     {
         Node *p;   
        
@@ -43,7 +40,7 @@ public:
         return (this->pnext)->print();
     }    
 
-    Node *predecessor(int x)
+    Node *predecessor(string x)
     {
         if ((this == NULL ) || (this->pnext == NULL)){
             // predecessor sought on null list
@@ -56,7 +53,7 @@ public:
             return((this->pnext)->predecessor(x));
     }
 
-    Node *search(int x)
+    Node *search(string x)
     {
         if (this == NULL) return (NULL);
     
@@ -66,7 +63,7 @@ public:
             return((this->pnext)->search(x));
     }
 
-    Node *remove(Node *listhead, int x)
+    Node *remove(Node *listhead, string x)
     {
         Node *p;            
         Node *pred;        
@@ -97,21 +94,21 @@ public:
 
 int main()
 {
-    Node MyNode(7);
+    Node MyNode("Robin");
     Node *Listhead = &MyNode;
     Node *foundnode;
-    Listhead = Listhead->insert(4);
-    Listhead = Listhead->insert(3);
+    Listhead = Listhead->insert("Batman");
+    Listhead = Listhead->insert("Joker");
         
     cout << "Print the list" << endl;
     Listhead->print();
     
-    cout << "Find node 4" << endl;
-    foundnode = Listhead->search(4);
+    cout << "Find node Batman" << endl;
+    foundnode = Listhead->search("Batman");
     cout << "Found " << foundnode->data << endl;
     
-    cout << "Delete node 3" << endl;
-    Listhead = Listhead->remove(Listhead, 3);
+    cout << "Delete node Joker" << endl;
+    Listhead = Listhead->remove(Listhead, "Joker");
     
     cout << "Print the list" << endl;
     Listhead->print();
