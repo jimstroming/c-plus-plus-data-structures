@@ -119,6 +119,7 @@ public:
         if (Listhead == NULL) return;
         Listhead = Listhead->remove(Listhead, x);
     }
+    
 
 };
 
@@ -127,24 +128,26 @@ public:
 
 int main()
 {
-    Node MyNode("Robin");
-    Node *Listhead = &MyNode;
-    Node *foundnode;
-    Listhead = Listhead->insert("Batman");
-    Listhead = Listhead->insert("Joker");
+    LinkedList MyList;
+    LinkedList *foundnode;
+
+    MyList.insert("Batman");
+    MyList.insert("Joker");
+    MyList.insert("Robin");
+
         
     cout << "Print the list" << endl;
-    Listhead->print();
+    MyList.print();
     
     cout << "Find node Batman" << endl;
-    foundnode = Listhead->search("Batman");
-    cout << "Found " << foundnode->data << endl;
+    foundnode = MyList.search("Batman");
+
     
     cout << "Delete node Joker" << endl;
-    Listhead = Listhead->remove(Listhead, "Joker");
+    MyList.remove("Joker");
     
     cout << "Print the list" << endl;
-    Listhead->print();
+    MyList.print();
     
     
     
