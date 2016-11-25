@@ -36,11 +36,11 @@ public:
         return p;    
     }
     
-    void print(Node *l)
+    void print()
     {
-        cout << (void *)l << " contains " << l->data << endl;
-        if (l->pnext == NULL) return;        
-        return print(l->pnext);
+        cout << (void *)this << " contains " << this->data << endl;
+        if (this->pnext == NULL) return;        
+        return (this->pnext)->print();
     }    
 
     Node *predecessor(Node *l, int x)
@@ -89,7 +89,7 @@ int main()
     Nodeptr = Nodeptr->insert(3);
         
     cout << "Print the list" << endl;
-    Nodeptr->print(Nodeptr);
+    Nodeptr->print();
     
     cout << "Find node 4" << endl;
     foundnode = Nodeptr->search(4);
