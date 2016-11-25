@@ -66,11 +66,6 @@ public:
             return((this->pnext)->search(x));
     }
 
-  
-    
-
-    // Remove node in front:
-    void remove_next();
 
 };
 
@@ -81,16 +76,16 @@ public:
 int main()
 {
     Node MyNode(7);
-    Node *Nodeptr = &MyNode;
+    Node *Listhead = &MyNode;
     Node *foundnode;
-    Nodeptr = Nodeptr->insert(4);
-    Nodeptr = Nodeptr->insert(3);
+    Listhead = Listhead->insert(4);
+    Listhead = Listhead->insert(3);
         
     cout << "Print the list" << endl;
-    Nodeptr->print();
+    Listhead->print();
     
     cout << "Find node 4" << endl;
-    foundnode = Nodeptr->search(4);
+    foundnode = Listhead->search(4);
     cout << "Found " << foundnode->data << endl;
     
     
