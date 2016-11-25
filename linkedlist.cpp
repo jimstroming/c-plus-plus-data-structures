@@ -66,6 +66,28 @@ public:
             return((this->pnext)->search(x));
     }
 
+    Node *remove(Node *listhead, int x)
+    {
+        Node *p;            
+        Node *pred;        
+        // list *search_list(), *predecessor_list();
+    
+        cout << "Call delete_list" << endl;
+        p = this->search(x);
+        if (p != NULL) {
+            cout << "Got a match" << endl;
+            pred = this->predecessor(x);
+            if (pred == NULL)  
+               listhead = p->pnext;
+            else
+               pred->pnext = p->pnext;
+            cout << "Free p=" << (void*)p << endl;
+            delete p; 
+            return listhead;           
+        }
+    }
+
+
 
 };
 
@@ -87,6 +109,13 @@ int main()
     cout << "Find node 4" << endl;
     foundnode = Listhead->search(4);
     cout << "Found " << foundnode->data << endl;
+    
+    cout << "Delete node 3" << endl;
+    Listhead = Listhead->remove(Listhead, 3);
+    
+    cout << "Print the list" << endl;
+    Listhead->print();
+    
     
     
     return 0;
