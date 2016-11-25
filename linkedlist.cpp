@@ -57,15 +57,15 @@ public:
             return(predecessor(l->pnext,x));
     }
 
-    Node *search(Node *l, int x)
+    Node *search(int x)
     {
         //printf("Call search_list\n");
-        if (l == NULL) return (NULL);
+        if (this == NULL) return (NULL);
     
-        if (l->data == x)
-            return(l);
+        if (this->data == x)
+            return(this);
         else
-            return(search(l->pnext, x));
+            return((this->pnext)->search(x));
     }
 
   
@@ -92,7 +92,7 @@ int main()
     Nodeptr->print(Nodeptr);
     
     cout << "Find node 4" << endl;
-    foundnode = Nodeptr->search(Nodeptr,4);
+    foundnode = Nodeptr->search(4);
     cout << "Found " << foundnode->data << endl;
     
     
