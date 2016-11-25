@@ -27,11 +27,11 @@ public:
     }
     // Insert node in front
     // Return a link to the head:
-    Node* insert( int value = 0 )
+    Node* insert( int x = 0 )
     {
         Node *p;   
        
-        p = new Node(value);
+        p = new Node(x);
         p->pnext = this;    
         return p;    
     }
@@ -43,18 +43,18 @@ public:
         return (this->pnext)->print();
     }    
 
-    Node *predecessor(Node *l, int x)
+    Node *predecessor(int x)
     {
         //printf("Get predecessor\n");
-        if ((l == NULL ) || (l->pnext == NULL)){
+        if ((this == NULL ) || (this->pnext == NULL)){
             // predecessor sought on null list
             return(NULL);    
         }
     
-        if ((l->pnext)->data == x)
-            return(l);
+        if ((this->pnext)->data == x)
+            return(this);
         else
-            return(predecessor(l->pnext,x));
+            return((this->pnext)->predecessor(x));
     }
 
     Node *search(int x)
